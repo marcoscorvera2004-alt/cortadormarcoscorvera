@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 3%;
+    --foreground: 40 10% 95%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 40 10% 95%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 40 10% 95%;
+
+    --primary: 0 72% 28%;
+    --primary-foreground: 40 10% 98%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 40 10% 95%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 30 5% 55%;
+
+    --accent: 38 65% 50%;
+    --accent-foreground: 0 0% 3%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 8% 16%;
+    --input: 30 8% 16%;
+    --ring: 38 65% 50%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 40 10% 95%;
+    --sidebar-primary: 0 72% 28%;
+    --sidebar-primary-foreground: 40 10% 98%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 40 10% 95%;
+    --sidebar-border: 30 8% 16%;
+    --sidebar-ring: 38 65% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 py-24 md:px-12 lg:px-24 md:py-32;
+  }
+
+  .gold-line {
+    @apply w-16 h-0.5 mx-auto;
+    background: linear-gradient(90deg, transparent, hsl(38 65% 50%), transparent);
+  }
+
+  .gold-line-left {
+    @apply w-16 h-0.5;
+    background: linear-gradient(90deg, hsl(38 65% 50%), transparent);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-700 ease-out hover:-translate-y-3 hover:shadow-2xl hover:shadow-accent/5;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(38 65% 60%), hsl(38 45% 40%));
+  }
+
+  .text-gradient-light {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(40 10% 98%), hsl(38 65% 55%));
+  }
+
+  .premium-border {
+    border-image: linear-gradient(135deg, hsl(38 65% 50% / 0.3), transparent) 1;
+  }
+
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-1 {
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-2 {
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-3 {
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-up-delay-4 {
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(0 0% 3%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(38 65% 50% / 0.4);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(38 65% 50% / 0.7);
+}
+
+/* Selection */
+::selection {
+  background: hsl(38 65% 50% / 0.3);
+  color: hsl(40 10% 98%);
+}
