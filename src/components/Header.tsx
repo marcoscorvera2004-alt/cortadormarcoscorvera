@@ -41,17 +41,17 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
+          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between h-16 md:h-20">
         <a href="#inicio" onClick={(e) => handleNavClick(e, "#inicio")} className="flex flex-col leading-none">
-          <span className="font-serif text-xl md:text-2xl font-bold text-foreground tracking-wide">
-            Marcos Corvera
+          <span className="font-serif text-2xl md:text-3xl font-bold text-foreground tracking-wider uppercase">
+            Corvera
           </span>
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium">
-            Cortador de Jamón
+          <span className="text-[9px] md:text-[10px] uppercase tracking-[0.35em] text-muted-foreground font-medium">
+            Un Corte Original
           </span>
         </a>
 
@@ -61,7 +61,7 @@ const Header = () => {
               key={link.href}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="text-sm uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+              className="text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
             >
               {link.label}
             </a>
@@ -85,7 +85,7 @@ const Header = () => {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors"
+                className="text-xs uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
               </a>

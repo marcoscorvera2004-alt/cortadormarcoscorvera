@@ -29,17 +29,13 @@ const TestimonialsSection = () => {
 
   return (
     <section className="section-padding bg-secondary relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent rounded-full blur-[200px]" />
-      </div>
-
       <div className="container mx-auto relative z-10" ref={ref}>
         <div className="text-center mb-20">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-xs uppercase tracking-[0.4em] text-accent font-semibold"
+            className="text-xs uppercase tracking-[0.4em] text-primary font-semibold"
           >
             Testimonios
           </motion.span>
@@ -49,7 +45,7 @@ const TestimonialsSection = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-serif text-3xl md:text-5xl font-bold text-foreground mt-4"
           >
-            Clientes que han <span className="text-gradient">confiado</span>
+            Clientes que han <span className="text-primary">confiado</span>
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, width: 0 }}
@@ -66,17 +62,17 @@ const TestimonialsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 * i }}
-              className="glass-card rounded-lg p-8 hover:border-accent/30 transition-all duration-700"
+              className="bg-background border border-border p-8 hover:border-primary/30 transition-all duration-700"
             >
               <div className="flex gap-1 mb-5">
                 {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star key={j} size={14} className="text-accent fill-accent" />
+                  <Star key={j} size={14} className="text-primary fill-primary" />
                 ))}
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed italic mb-6">
                 "{t.text}"
               </p>
-              <div className="border-t border-border/50 pt-5">
+              <div className="border-t border-border pt-5">
                 <p className="font-serif text-foreground font-semibold text-sm">{t.name}</p>
                 <p className="text-muted-foreground text-xs mt-1">{t.role}</p>
               </div>
