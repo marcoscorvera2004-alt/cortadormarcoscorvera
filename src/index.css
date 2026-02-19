@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
 
 @tailwind base;
@@ -8,44 +7,44 @@
 
 @layer base {
   :root {
-    --background: 0 0% 3%;
-    --foreground: 40 10% 95%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 40 10% 95%;
+    --card: 0 0% 97%;
+    --card-foreground: 0 0% 8%;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 40 10% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 0 72% 28%;
-    --primary-foreground: 40 10% 98%;
+    --primary: 0 72% 30%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 40 10% 95%;
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 0 0% 14%;
-    --muted-foreground: 30 5% 55%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 38 65% 50%;
-    --accent-foreground: 0 0% 3%;
+    --accent: 0 72% 30%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 30 8% 16%;
-    --input: 30 8% 16%;
-    --ring: 38 65% 50%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 72% 30%;
 
-    --radius: 0.25rem;
+    --radius: 0.125rem;
 
-    --sidebar-background: 0 0% 5%;
-    --sidebar-foreground: 40 10% 95%;
-    --sidebar-primary: 0 72% 28%;
-    --sidebar-primary-foreground: 40 10% 98%;
-    --sidebar-accent: 0 0% 12%;
-    --sidebar-accent-foreground: 40 10% 95%;
-    --sidebar-border: 30 8% 16%;
-    --sidebar-ring: 38 65% 50%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 0 72% 30%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 95%;
+    --sidebar-accent-foreground: 0 0% 8%;
+    --sidebar-border: 0 0% 88%;
+    --sidebar-ring: 0 72% 30%;
   }
 }
 
@@ -62,7 +61,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
   }
 }
 
@@ -72,35 +71,31 @@
   }
 
   .gold-line {
-    @apply w-16 h-0.5 mx-auto;
-    background: linear-gradient(90deg, transparent, hsl(38 65% 50%), transparent);
+    @apply w-16 h-px mx-auto bg-primary/40;
   }
 
   .gold-line-left {
-    @apply w-16 h-0.5;
-    background: linear-gradient(90deg, hsl(38 65% 50%), transparent);
+    @apply w-16 h-px bg-primary/40;
   }
 
   .hover-lift {
-    @apply transition-all duration-700 ease-out hover:-translate-y-3 hover:shadow-2xl hover:shadow-accent/5;
+    @apply transition-all duration-700 ease-out hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/5;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(38 65% 60%), hsl(38 45% 40%));
+    @apply text-primary;
   }
 
   .text-gradient-light {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(40 10% 98%), hsl(38 65% 55%));
+    @apply text-primary;
   }
 
   .premium-border {
-    border-image: linear-gradient(135deg, hsl(38 65% 50% / 0.3), transparent) 1;
+    @apply border-primary/20;
   }
 
   .glass-card {
-    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+    @apply bg-card border border-border;
   }
 }
 
@@ -160,18 +155,18 @@ html {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(0 0% 3%);
+  background: hsl(0 0% 95%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(38 65% 50% / 0.4);
+  background: hsl(0 0% 70%);
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(38 65% 50% / 0.7);
+  background: hsl(0 0% 50%);
 }
 
 /* Selection */
 ::selection {
-  background: hsl(38 65% 50% / 0.3);
-  color: hsl(40 10% 98%);
+  background: hsl(0 72% 30% / 0.15);
+  color: hsl(0 0% 8%);
 }

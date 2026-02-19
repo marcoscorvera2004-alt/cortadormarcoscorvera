@@ -19,13 +19,12 @@ const ServicesSection = () => {
   return (
     <section id="servicios" className="section-padding bg-background">
       <div className="container mx-auto" ref={ref}>
-        {/* Header */}
         <div className="text-center mb-20">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-xs uppercase tracking-[0.4em] text-accent font-semibold"
+            className="text-xs uppercase tracking-[0.4em] text-primary font-semibold"
           >
             Servicios exclusivos
           </motion.span>
@@ -45,7 +44,6 @@ const ServicesSection = () => {
           />
         </div>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {services.map((service, i) => (
             <motion.div
@@ -53,7 +51,7 @@ const ServicesSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 * i }}
-              className="group glass-card rounded-lg overflow-hidden hover:border-accent/30 transition-all duration-700"
+              className="group bg-card border border-border overflow-hidden hover:border-primary/30 transition-all duration-700"
             >
               <div className="aspect-[4/3] overflow-hidden relative">
                 <img
@@ -62,24 +60,23 @@ const ServicesSection = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
               </div>
               <div className="p-7">
-                <h3 className="font-serif text-xl font-bold text-foreground group-hover:text-accent transition-colors duration-500 leading-snug">
+                <h3 className="font-serif text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-500 leading-snug">
                   {service.name}
                 </h3>
-                <p className="text-accent font-semibold mt-3 text-sm tracking-wide">{service.price}</p>
+                <p className="text-primary font-semibold mt-3 text-sm tracking-wide">{service.price}</p>
                 
                 <button
                   onClick={() => setInfoOpen(service.id)}
-                  className="mt-5 w-full flex items-center justify-center gap-2 border border-border text-muted-foreground uppercase text-xs font-bold tracking-widest py-3 rounded hover:border-accent/50 hover:text-accent transition-all duration-500"
+                  className="mt-5 w-full flex items-center justify-center gap-2 border border-border text-muted-foreground uppercase text-xs font-bold tracking-widest py-3 hover:border-primary/50 hover:text-primary transition-all duration-500"
                 >
                   <Info size={14} />
                   Más información
                 </button>
                 <button
                   onClick={() => handleRequestService(service.name)}
-                  className="mt-3 w-full bg-accent/10 text-accent uppercase text-xs font-bold tracking-widest py-3 rounded hover:bg-accent hover:text-accent-foreground transition-all duration-500"
+                  className="mt-3 w-full bg-primary/5 text-primary uppercase text-xs font-bold tracking-widest py-3 hover:bg-primary hover:text-primary-foreground transition-all duration-500"
                 >
                   Solicitar servicio
                 </button>
@@ -108,7 +105,7 @@ const ServicesSection = () => {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.3 }}
-                className="relative glass-card rounded-lg w-full max-w-lg p-8 max-h-[90vh] overflow-y-auto"
+                className="relative bg-background border border-border w-full max-w-lg p-8 max-h-[90vh] overflow-y-auto"
               >
                 <button
                   onClick={() => setInfoOpen(null)}
@@ -118,7 +115,7 @@ const ServicesSection = () => {
                   <X size={20} />
                 </button>
                 <h3 className="font-serif text-2xl font-bold text-foreground mb-2">{service.name}</h3>
-                <p className="text-accent font-semibold text-sm tracking-wide mb-4">{service.price}</p>
+                <p className="text-primary font-semibold text-sm tracking-wide mb-4">{service.price}</p>
                 <div className="gold-line-left mb-6" />
                 <p className="text-muted-foreground leading-relaxed mb-4">{service.fullDescription}</p>
                 <p className="text-muted-foreground/70 text-sm italic mb-6">{service.premiumNote}</p>
@@ -127,7 +124,7 @@ const ServicesSection = () => {
                     setInfoOpen(null);
                     handleRequestService(service.name);
                   }}
-                  className="w-full bg-accent text-accent-foreground uppercase text-sm font-bold tracking-widest py-4 rounded hover:bg-accent/90 transition-all duration-500 flex items-center justify-center gap-2"
+                  className="w-full bg-primary text-primary-foreground uppercase text-sm font-bold tracking-widest py-4 hover:bg-primary/90 transition-all duration-500 flex items-center justify-center gap-2"
                 >
                   <Send size={16} />
                   Solicitar servicio

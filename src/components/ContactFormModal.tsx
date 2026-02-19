@@ -22,7 +22,6 @@ const ContactFormModal = ({ isOpen, onClose, prefilledMessage = "", title = "Sol
   const [honeypot, setHoneypot] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  // Sync prefilled message when it changes (e.g. different service selected)
   const prevPrefilledRef = React.useRef(prefilledMessage);
   React.useEffect(() => {
     if (prefilledMessage !== prevPrefilledRef.current) {
@@ -36,7 +35,7 @@ const ContactFormModal = ({ isOpen, onClose, prefilledMessage = "", title = "Sol
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (honeypot) return; // Bot detected
+    if (honeypot) return;
 
     const result = contactSchema.safeParse(form);
     if (!result.success) {
@@ -85,7 +84,7 @@ const ContactFormModal = ({ isOpen, onClose, prefilledMessage = "", title = "Sol
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-background/85 backdrop-blur-md"
+            className="absolute inset-0 bg-foreground/50 backdrop-blur-sm"
             onClick={onClose}
           />
           <motion.div
@@ -93,7 +92,7 @@ const ContactFormModal = ({ isOpen, onClose, prefilledMessage = "", title = "Sol
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="relative glass-card rounded-lg w-full max-w-md p-8 max-h-[90vh] overflow-y-auto"
+            className="relative bg-background border border-border w-full max-w-md p-8 max-h-[90vh] overflow-y-auto"
           >
             <button
               onClick={onClose}
@@ -107,7 +106,6 @@ const ContactFormModal = ({ isOpen, onClose, prefilledMessage = "", title = "Sol
             <div className="gold-line-left mb-6" />
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Honeypot - hidden from real users */}
               <input
                 type="text"
                 name="website"
@@ -125,7 +123,7 @@ const ContactFormModal = ({ isOpen, onClose, prefilledMessage = "", title = "Sol
                   maxLength={100}
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full bg-secondary/50 border border-border rounded px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent/50 transition-colors duration-500"
+                  className="w-full bg-secondary border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-500"
                 />
                 {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
               </div>
@@ -137,7 +135,7 @@ const ContactFormModal = ({ isOpen, onClose, prefilledMessage = "", title = "Sol
                   maxLength={30}
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full bg-secondary/50 border border-border rounded px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent/50 transition-colors duration-500"
+                  className="w-full bg-secondary border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-500"
                 />
                 {errors.phone && <p className="text-destructive text-xs mt-1">{errors.phone}</p>}
               </div>
@@ -149,7 +147,7 @@ const ContactFormModal = ({ isOpen, onClose, prefilledMessage = "", title = "Sol
                   maxLength={255}
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full bg-secondary/50 border border-border rounded px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent/50 transition-colors duration-500"
+                  className="w-full bg-secondary border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-500"
                 />
                 {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
               </div>
@@ -161,7 +159,7 @@ const ContactFormModal = ({ isOpen, onClose, prefilledMessage = "", title = "Sol
                   maxLength={5000}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full bg-secondary/50 border border-border rounded px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent/50 transition-colors duration-500 resize-none"
+                  className="w-full bg-secondary border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-500 resize-none"
                 />
                 {errors.message && <p className="text-destructive text-xs mt-1">{errors.message}</p>}
               </div>
@@ -171,13 +169,13 @@ const ContactFormModal = ({ isOpen, onClose, prefilledMessage = "", title = "Sol
                   placeholder="Código promocional (opcional)"
                   value={form.promo}
                   onChange={(e) => setForm({ ...form, promo: e.target.value })}
-                  className="w-full bg-secondary/50 border border-border rounded px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent/50 transition-colors duration-500"
+                  className="w-full bg-secondary border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-500"
                 />
               )}
               <button
                 type="submit"
                 disabled={sending}
-                className="w-full bg-accent text-accent-foreground uppercase text-sm font-bold tracking-widest py-4 rounded hover:bg-accent/90 transition-all duration-500 flex items-center justify-center gap-2 disabled:opacity-50"
+                className="w-full bg-primary text-primary-foreground uppercase text-sm font-bold tracking-widest py-4 hover:bg-primary/90 transition-all duration-500 flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <Send size={16} />
                 {sent ? "¡Enviado con éxito!" : sending ? "Enviando..." : "Enviar solicitud"}

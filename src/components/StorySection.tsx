@@ -8,16 +8,13 @@ const StorySection = () => {
 
   return (
     <section id="historia" className="section-padding bg-background relative overflow-hidden">
-      {/* Subtle bg glow */}
-      <div className="absolute top-1/2 left-0 w-64 h-64 bg-accent/5 rounded-full blur-[120px]" />
-
       <div className="container mx-auto relative z-10" ref={ref}>
         <div className="text-center mb-20">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-xs uppercase tracking-[0.4em] text-accent font-semibold"
+            className="text-xs uppercase tracking-[0.4em] text-primary font-semibold"
           >
             Sobre nosotros
           </motion.span>
@@ -38,14 +35,13 @@ const StorySection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-          {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
             className="relative"
           >
-            <div className="aspect-[3/4] rounded-lg overflow-hidden">
+            <div className="aspect-[3/4] overflow-hidden">
               <img
                 src={storyImg}
                 alt="Marcos Corvera, cortador profesional de jamón"
@@ -53,11 +49,9 @@ const StorySection = () => {
                 loading="lazy"
               />
             </div>
-            <div className="absolute -bottom-4 -right-4 w-28 h-28 border border-accent/30 rounded-lg" />
-            <div className="absolute -top-4 -left-4 w-20 h-20 border border-accent/20 rounded-lg" />
+            <div className="absolute -bottom-4 -right-4 w-28 h-28 border border-primary/20" />
           </motion.div>
 
-          {/* Text */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -78,11 +72,11 @@ const StorySection = () => {
             </p>
             <div className="pt-6">
               <div className="gold-line-left" />
-              <p className="mt-5 font-serif text-xl text-foreground font-semibold">
+              <p className="mt-5 font-serif text-xl text-foreground font-semibold uppercase tracking-wider">
                 Marcos Corvera
               </p>
-              <p className="font-serif text-sm text-accent italic mt-1">
-                El arte del corte a cuchillo.
+              <p className="font-serif text-sm text-primary italic mt-1">
+                Un Corte Original
               </p>
             </div>
           </motion.div>
